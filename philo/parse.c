@@ -6,7 +6,7 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 15:24:10 by mbutter           #+#    #+#             */
-/*   Updated: 2022/02/23 14:27:30 by mbutter          ###   ########.fr       */
+/*   Updated: 2022/02/25 16:54:13 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ int	parse(int argc, char **argv, t_global *a)
 	if (argc == 5 || argc == 6)
 	{
 		a->num_philo = simple_atoi(argv[1]);
-		a->time_to_die = simple_atoi(argv[2]) * 1000;
-		a->time_to_eat = simple_atoi(argv[3]) * 1000;
-		a->time_to_sleep = simple_atoi(argv[4]) * 1000;
+		a->time_to_die = simple_atoi(argv[2]);
+		a->time_to_eat = simple_atoi(argv[3]);
+		a->time_to_sleep = simple_atoi(argv[4]);
 		a->num_to_eat = -1;
 		if (argc == 6)
 			a->num_to_eat = simple_atoi(argv[5]);

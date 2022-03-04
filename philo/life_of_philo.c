@@ -6,11 +6,56 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 17:15:03 by mbutter           #+#    #+#             */
-/*   Updated: 2022/02/23 16:40:08 by mbutter          ###   ########.fr       */
+/*   Updated: 2022/03/04 21:00:37 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+void take_forks(t_philo *philo)
+{
+	while (philo->right_fork->ph_id != philo->id_philo || philo->left_fork->ph_id != philo->id_philo)
+	{
+		if (*(philo->must_die) == e_true)
+			break ;
+		if (!philo->right_fork->use)
+		{
+			philo->right_fork->use = e_true;
+			pthread_mutex_lock(philo->right_fork->fork);
+			philo->right_fork->ph_id = philo->id_philo;
+			print_message(philo, "has taken right fork");
+		}
+		if (!philo->left_fork->use)
+		{
+			philo->left_fork->use = e_true;
+			pthread_mutex_lock(philo->left_fork->fork);
+			philo->left_fork->ph_id = philo->id_philo;
+			print_message(philo, "has taken left fork");
+		}
+	}
+}
+
+void philo_eating(t_philo *philo)
+{
+	if (philo->left_fork->ph_id != philo->id_philo && philo->right_fork->ph_id != philo->id_philo)
+		return ;
+	print_message(philo, "is eating");
+	improved_usleep(philo->time_to_eat);
+	pthread_mutex_unlock(philo->right_fork->fork);
+	philo->right_fork->use = e_false;
+	philo->right_fork->ph_id = -1;
+	pthread_mutex_unlock(philo->left_fork->fork);
+	philo->left_fork->use = e_false;
+	philo->left_fork->ph_id = -1;
+	philo->last_eating_time = get_current_time() - philo->start_time;
+
+}
+
+void philo_sleeping(t_philo *philo)
+{
+	print_message(philo, "is sleeping");
+	improved_usleep(philo->time_to_sleep);
+}
 
 void *philo_routine(void *p)
 {
@@ -19,10 +64,22 @@ void *philo_routine(void *p)
 	philo_data = (t_philo *)p;
 	if (philo_data->id_philo % 2 == 1)
 		usleep(2500);
-/*	while(1)
+	while(1)
 	{
-		
-	}*/
-	printf("philo %d\n", philo_data->id_philo);
+		print_message(philo_data, "is thinking");
+		if (*(philo_data->must_die) == e_true)
+			break ;
+		take_forks(philo_data);
+		if (*(philo_data->must_die) == e_true)
+			break ;
+		philo_eating(philo_data);
+		if (philo_data->count_eating == 0)
+			break ;
+		if (*(philo_data->must_die) == e_true)
+			break ;
+		philo_sleeping(philo_data);
+		if (*(philo_data->must_die) == e_true)
+			break ;
+	}
 	return (NULL);
 }

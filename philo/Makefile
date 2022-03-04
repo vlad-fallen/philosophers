@@ -6,7 +6,7 @@
 #    By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/04 15:40:50 by mbutter           #+#    #+#              #
-#    Updated: 2022/02/23 15:50:27 by mbutter          ###   ########.fr        #
+#    Updated: 2022/02/26 17:20:41 by mbutter          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,8 @@ SRCS		=	philo.c \
 				parse.c \
 				init_philo.c \
 				life_of_philo.c \
+				check_death.c \
+				print_message.c \
 				utils_lib.c \
 				utils.c
 
@@ -33,8 +35,6 @@ RM			=	rm -f
 
 CFLAGS		=	-Wall -Wextra -Werror -g -pthread
 
-BONUS_NAME	=	checker
-
 %.o:		%.c Makefile
 			$(CC) $(CFLAGS) -c $< -o $@ -MMD
 
@@ -47,7 +47,7 @@ clean:
 			$(RM) $(OBJS) $(D_FILES) $(BONUS_OBJS) $(D_FILES_B)
 
 fclean:		clean
-			$(RM) $(NAME) $(BONUS_NAME)
+			$(RM) $(NAME)
 
 re:			fclean $(NAME)
 
