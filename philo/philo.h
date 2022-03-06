@@ -6,7 +6,7 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 14:20:10 by mbutter           #+#    #+#             */
-/*   Updated: 2022/03/02 19:55:04 by mbutter          ###   ########.fr       */
+/*   Updated: 2022/03/06 17:43:34 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ typedef struct s_fork
 	t_bool			use;
 }	t_fork;
 
-
 typedef struct s_philo
 {
 	int				time_to_die;
@@ -45,7 +44,7 @@ typedef struct s_philo
 	t_fork			*left_fork;
 	int				last_eating_time;
 	t_bool			*must_die;
-	int 			count_eating;
+	int				count_eating;
 	pthread_mutex_t	*print_mutex;
 	long			start_time;
 	long			current_time;
