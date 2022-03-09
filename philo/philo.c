@@ -6,13 +6,13 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 14:18:56 by mbutter           #+#    #+#             */
-/*   Updated: 2022/03/07 15:20:39 by mbutter          ###   ########.fr       */
+/*   Updated: 2022/03/08 19:13:12 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	create_threads(t_global *glob, t_philo *philo, t_death *death_philo)
+static int	create_threads(t_global *glob, t_philo *philo, t_death *death_philo)
 {
 	int			i;
 	pthread_t	*threads_id;
@@ -40,7 +40,7 @@ int	create_threads(t_global *glob, t_philo *philo, t_death *death_philo)
 	return (0);
 }
 
-void	destroy_all(t_philo *philo, t_global *glob)
+static void	destroy_all(t_philo *philo, t_global *glob)
 {
 	int	i;
 

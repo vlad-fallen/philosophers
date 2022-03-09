@@ -6,13 +6,13 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 18:05:39 by mbutter           #+#    #+#             */
-/*   Updated: 2022/03/02 20:35:29 by mbutter          ###   ########.fr       */
+/*   Updated: 2022/03/08 19:11:15 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	forks_init(t_fork **forks_out, t_global *glob)
+static int	forks_init(t_fork **forks_out, t_global *glob)
 {
 	int				i;
 	t_fork			*forks;
@@ -37,7 +37,7 @@ int	forks_init(t_fork **forks_out, t_global *glob)
 	return (0);
 }
 
-int	philo_init(t_philo **philo_out, t_global *glob, t_fork *forks)
+static int	philo_init(t_philo **philo_out, t_global *glob, t_fork *forks)
 {
 	int		i;
 	t_philo	*philo;

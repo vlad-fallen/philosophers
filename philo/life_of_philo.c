@@ -6,19 +6,19 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 17:15:03 by mbutter           #+#    #+#             */
-/*   Updated: 2022/03/07 15:18:04 by mbutter          ###   ########.fr       */
+/*   Updated: 2022/03/08 19:11:56 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	put_down_forks(t_philo *philo)
+static void	put_down_forks(t_philo *philo)
 {
 	pthread_mutex_unlock(philo->right_fork->fork);
 	pthread_mutex_unlock(philo->right_fork->fork);
 }
 
-void	take_forks(t_philo *philo)
+static void	take_forks(t_philo *philo)
 {
 	pthread_mutex_lock(philo->right_fork->fork);
 	if (*(philo->must_die) == e_true)
@@ -40,7 +40,7 @@ void	take_forks(t_philo *philo)
 	print_message(philo, "has taken left fork");
 }
 
-void	philo_eating(t_philo *philo)
+static void	philo_eating(t_philo *philo)
 {
 	if (philo->left_fork->ph_id != philo->id_philo
 		&& philo->right_fork->ph_id != philo->id_philo)
@@ -58,7 +58,7 @@ void	philo_eating(t_philo *philo)
 	philo->last_eating_time = get_current_time() - philo->start_time;
 }
 
-void	philo_sleeping(t_philo *philo)
+static void	philo_sleeping(t_philo *philo)
 {
 	print_message(philo, "is sleeping");
 	improved_usleep(philo->time_to_sleep);

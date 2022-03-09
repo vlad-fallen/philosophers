@@ -6,13 +6,13 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 15:24:10 by mbutter           #+#    #+#             */
-/*   Updated: 2022/03/06 17:38:32 by mbutter          ###   ########.fr       */
+/*   Updated: 2022/03/08 19:12:56 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	simple_atoi(char *str)
+static int	simple_atoi(char *str)
 {
 	unsigned int	i;
 	unsigned long	n;
@@ -27,7 +27,7 @@ int	simple_atoi(char *str)
 	return ((int)n);
 }
 
-int	check_arg(char **argv, int argc)
+static int	check_arg(char **argv, int argc)
 {
 	int	i;
 	int	j;

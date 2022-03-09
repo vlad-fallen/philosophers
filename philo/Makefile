@@ -6,7 +6,7 @@
 #    By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/04 15:40:50 by mbutter           #+#    #+#              #
-#    Updated: 2022/03/06 13:37:00 by mbutter          ###   ########.fr        #
+#    Updated: 2022/03/08 13:04:00 by mbutter          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,6 @@ SRCS		=	philo.c \
 				init_philo.c \
 				life_of_philo.c \
 				check_death.c \
-				print_message.c \
-				utils_lib.c \
 				utils.c
 
 OBJS		=	$(patsubst %.c,%.o,$(SRCS)) 

@@ -6,7 +6,7 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 16:56:00 by mbutter           #+#    #+#             */
-/*   Updated: 2022/03/06 17:44:53 by mbutter          ###   ########.fr       */
+/*   Updated: 2022/03/08 13:03:38 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,32 @@ void	improved_usleep(long time_ms)
 		usleep(1);
 		current = get_current_time();
 	}
+}
+
+void	ft_putstr_fd(char *s, int fd)
+{
+	size_t	i;
+
+	if (s == NULL)
+		return ;
+	i = 0;
+	while (s[i])
+		i++;
+	write(fd, s, i);
+}
+
+void	print_message(t_philo *philo, char *message)
+{
+	long	current_time;
+
+	pthread_mutex_lock(philo->print_mutex);
+	current_time = get_current_time();
+	philo->current_time = current_time - philo->start_time;
+	if (*(philo->must_die) == e_true)
+	{
+		pthread_mutex_unlock(philo->print_mutex);
+		return ;
+	}
+	printf("%ld %d %s\n", philo->current_time, philo->id_philo, message);
+	pthread_mutex_unlock(philo->print_mutex);
 }

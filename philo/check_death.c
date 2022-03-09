@@ -6,13 +6,13 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 16:04:09 by mbutter           #+#    #+#             */
-/*   Updated: 2022/03/07 15:18:13 by mbutter          ###   ########.fr       */
+/*   Updated: 2022/03/08 19:10:58 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	death_philo(t_philo *philo, long current_time)
+static void	death_philo(t_philo *philo, long current_time)
 {
 	*(philo->must_die) = e_true;
 	pthread_mutex_lock(philo->print_mutex);
