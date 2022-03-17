@@ -6,7 +6,7 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 16:04:09 by mbutter           #+#    #+#             */
-/*   Updated: 2022/03/13 19:08:18 by mbutter          ###   ########.fr       */
+/*   Updated: 2022/03/15 21:11:22 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	death_philo(t_philo *philo, long current_time)
 
 void	*check_death(void *p)
 {
-	// (void)p;
 	t_philo *philo;
 	long	current_time;
 
@@ -38,6 +37,13 @@ void	*check_death(void *p)
 			break ;
 		}
 		sem_post(philo->data->must_die);
+		sem_wait(philo->data->must_die);
+		if (philo->count_eating == 0)
+		{
+			sem_post(philo->data->stop_death);
+			break ;
+		}
+		sem_post(philo->data->must_die);		
 	}
 	return (NULL);
 }

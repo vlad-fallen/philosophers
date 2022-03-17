@@ -6,7 +6,7 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 15:24:10 by mbutter           #+#    #+#             */
-/*   Updated: 2022/03/13 16:43:37 by mbutter          ###   ########.fr       */
+/*   Updated: 2022/03/16 20:50:45 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ void	parse(int argc, char **argv, t_global *data)
 			data->num_to_eat = simple_atoi(argv[5]);
 
 	}
+	else 
+		ft_exit("Error with argument\n", 1);
 	if (data->num_philo == 0 || data->time_to_die == 0 || data->time_to_eat == 0
 		|| data->time_to_sleep == 0 || data->num_to_eat == 0)
 	{

@@ -6,7 +6,7 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 16:56:00 by mbutter           #+#    #+#             */
-/*   Updated: 2022/03/12 16:57:26 by mbutter          ###   ########.fr       */
+/*   Updated: 2022/03/17 20:52:25 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	improved_usleep(long time_ms)
 	current = get_current_time();
 	while ((current - start) < time_ms)
 	{
-		usleep(1);
+		usleep(10);
 		current = get_current_time();
 	}
 }
@@ -60,12 +60,12 @@ void	print_message(t_philo *philo, char *message)
 
 	sem_wait(philo->data->print_sem);
 	current_time = get_current_time();
-	philo->data->current_time = current_time - philo->data->start_time;
+	philo->current_time = current_time - philo->data->start_time;
 	if (philo->must_die == e_true)
 	{
 		sem_post(philo->data->print_sem);
 		return ;
 	}
-	printf("%ld %d %s\n", philo->data->current_time, philo->id_philo, message);
+	printf("%ld %d %s\n", philo->current_time, philo->id_philo, message);
 	sem_post(philo->data->print_sem);
 }
