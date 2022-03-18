@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_death.c                                      :+:      :+:    :+:   */
+/*   check_death_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 16:04:09 by mbutter           #+#    #+#             */
-/*   Updated: 2022/03/18 19:07:29 by mbutter          ###   ########.fr       */
+/*   Updated: 2022/03/18 20:19:56 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "philo_bonus.h"
 
 void	death_philo(t_philo *philo, long current_time)
 {

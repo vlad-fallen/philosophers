@@ -6,18 +6,18 @@
 #    By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/04 15:40:50 by mbutter           #+#    #+#              #
-#    Updated: 2022/03/12 18:26:18 by mbutter          ###   ########.fr        #
+#    Updated: 2022/03/18 20:23:53 by mbutter          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	philo
 
-SRCS		=	philo.c \
-				parse.c \
-				init_philo.c \
-				life_of_philo.c \
-				check_death.c \
-				utils.c
+SRCS		=	philo_bonus.c \
+				parse_bonus.c \
+				init_philo_bonus.c \
+				life_of_philo_bonus.c \
+				check_death_bonus.c \
+				utils_bonus.c
 
 OBJS		=	$(patsubst %.c,%.o,$(SRCS)) 
 
