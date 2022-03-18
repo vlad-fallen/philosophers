@@ -6,7 +6,7 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 18:05:39 by mbutter           #+#    #+#             */
-/*   Updated: 2022/03/16 20:23:18 by mbutter          ###   ########.fr       */
+/*   Updated: 2022/03/18 19:07:52 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	init_data(t_global *data)
 
 t_philo	*philo_init(t_global *data)
 {
-	t_philo *philo;
+	t_philo	*philo;
 	int		i;
 
 	philo = (t_philo *)malloc(sizeof(t_philo) * data->num_philo);

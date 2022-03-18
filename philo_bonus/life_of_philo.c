@@ -6,7 +6,7 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 17:15:03 by mbutter           #+#    #+#             */
-/*   Updated: 2022/03/17 21:39:41 by mbutter          ###   ########.fr       */
+/*   Updated: 2022/03/18 19:08:04 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	philo_sleeping(t_philo *philo)
 
 void	philo_routine(t_philo *philo)
 {
-	pthread_t thread_death;
+	pthread_t	thread_death;
 
 	if (pthread_create(&thread_death, NULL, check_death, philo))
 		ft_exit("Error with thread", 1);
@@ -52,11 +52,11 @@ void	philo_routine(t_philo *philo)
 		if (philo->must_die == e_true)
 			break ;
 		philo_eating(philo);
-		if (philo->count_eating == 0)
-			break ;
 		if (philo->must_die == e_true)
 			break ;
 		philo_sleeping(philo);
+		if (philo->count_eating == 0)
+			break ;
 		if (philo->must_die == e_true)
 			break ;
 	}
