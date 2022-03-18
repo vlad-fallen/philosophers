@@ -6,7 +6,7 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 17:15:03 by mbutter           #+#    #+#             */
-/*   Updated: 2022/03/08 19:11:56 by mbutter          ###   ########.fr       */
+/*   Updated: 2022/03/18 19:15:24 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,11 +80,11 @@ void	*philo_routine(void *p)
 		if (*(philo_data->must_die) == e_true)
 			break ;
 		philo_eating(philo_data);
-		if (philo_data->count_eating == 0)
-			break ;
 		if (*(philo_data->must_die) == e_true)
 			break ;
 		philo_sleeping(philo_data);
+		if (philo_data->count_eating == 0)
+			break ;
 		if (*(philo_data->must_die) == e_true)
 			break ;
 	}
