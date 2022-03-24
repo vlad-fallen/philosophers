@@ -6,7 +6,7 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 14:18:56 by mbutter           #+#    #+#             */
-/*   Updated: 2022/03/18 20:19:56 by mbutter          ###   ########.fr       */
+/*   Updated: 2022/03/24 18:58:01 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,14 @@
 
 void	destroy_all(t_philo *philo, t_global *data)
 {
-	usleep(data->time_to_die * 1000);
+	int i;
+
+	i = 0;
+	while (i < data->num_philo)
+	{
+		kill(philo[i].id_pid, SIGKILL);
+		i++;
+	}
 	sem_close(data->forks);
 	sem_close(data->must_die);
 	sem_close(data->print_sem);

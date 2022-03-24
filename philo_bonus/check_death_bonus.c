@@ -6,7 +6,7 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 16:04:09 by mbutter           #+#    #+#             */
-/*   Updated: 2022/03/18 20:19:56 by mbutter          ###   ########.fr       */
+/*   Updated: 2022/03/20 15:00:00 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	*check_death(void *p)
 		sem_wait(philo->data->must_die);
 		if (philo->count_eating == 0)
 		{
+			usleep(philo->data->time_to_die * 1000);
 			sem_post(philo->data->stop_death);
 			break ;
 		}
